@@ -749,6 +749,41 @@
       });
     });
   });
+  document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    const data = {};
+    new FormData(form).forEach((v, k) => { data[k] = v; });
+    fetch('https://formsubmit.co/ajax/ragulensandframes@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+      if (res.success === 'true' || res.success === true) {
+        btn.textContent = 'Message Sent! ✓';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 4000);
+      } else {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    })
+    .catch(() => {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    });
+  });
 </script>
 </body>
 </html>
