@@ -14,6 +14,11 @@ Two standalone single-file HTML websites — no build system, no dependencies, n
 - `dark-version.html` — Dark elegant theme (near-black, warm gold)
 - `jpgs/` — All client photos used in the gallery
 
+## GitHub Pages URLs
+
+- Pastel: `https://ragusre1979.github.io/Ragu-lens-and-frames/pastel-version.html`
+- Dark: `https://ragusre1979.github.io/Ragu-lens-and-frames/dark-version.html`
+
 ## Opening in Browser
 
 ```bash
